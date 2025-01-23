@@ -1,43 +1,57 @@
-# Thesis
-Thesis project: \
-Code repository for the execution of an ECG captioning model.\
-The model is composed of an Encoder and a Decoder. The encoder is a pytorch model and the decoder is a Language model, at the moment we are using a GPT-2 model. These are connected by a linear layer that converts the encoder output to the language model's embedding size. 
+# Heartfelt Words: Automated Report Generation for ECG Signals
 
-The encoder is a CNN model that takes as input a 12-lead ECG signal and outputs a vector of 768 features (after connecting linear layer). \
-The decoder is a GPT-2 model that takes as input the encoder output and outputs a caption.
+This repository contains the implementation of an innovative system for generating clinical reports from 12-lead ECG signals. It combines advanced signal processing techniques with state-of-the-art language models to assist medical professionals in interpreting ECG data.
 
-## Installation
-Install the requirements using the following command: \
-`pip install -r requirements.txt` \
-There may be some requirements that are not in the requirements.txt file. If you encounter any errors, install the missing requirements using pip.
+## Project Overview
 
-## Usage
-- Demo: \
-There is a demo folder which contains the demo. To run the demo launch the server in the demo.py file
-The following variables must be set:
-  - BASEPATH = Base path of the project
-  - ECG_FOLDER = folder path containing the dataset ECGs from basepath
-  - REPORTS_PATH = path containing the translated reports from basepath
-  - JSON_FILE_TO_LOAD = path to load a json file containing the ECGs, their reports and their captions to display in the "homescreen" of the demo
-  - IMAGE_FOLDER_PATH = path to the folder containing the images to display in the "homescreen" of the demo (images are generated and saved here from the JSON file automatically)
-  - GPT_2_MODEL_PATH = path to the FULL (Encoder + Decoder) model
-  - UPLOAD_DIR = folder containing the ECGs uploaded for captioning
-    
+Cardiovascular diseases (CVDs) are the leading cause of death worldwide. The 12-lead ECG is a widely used diagnostic tool, but interpreting these signals can be challenging and time-consuming. This project proposes a novel approach using machine learning to generate human-readable ECG reports, aiming to aid clinicians and improve communication with patients.
 
-- Training: \
-  To train the model, you have to train the encoder and the decoder models.
-  The encoder model is trained on the classification task as specified in the thesis.\
-  The target of the encoder can be single target between 5 superclasses or multi target between 71 classes. Training is performed using the parameters specified in the config file and the encoder model weights are then saved into the results folder.  \
-  After having saved encoder model weights, decoder training can be performed.
-  The training is performed using the parameters specified in the config file and the FULL MODEL weights are then saved into the results folder. \
-  
-- Files:
-    - config.py: contains the configuration parameters for the model
-    - demo.py: contains the code relative to the demo. 
-    - encoder_model.py: contains the encoder model.
-    - decoder_model.py: contains the coder for decoder (caption model) and the Full model.
-    - encoder_train.py: contains the script to train the encoder model.
-    - helper_code.py: contains helper functions to load dataset and set filters.
-    - ecg_dataset.py: contains Dataset Class which is used to load and prepare the dataset.
-    - model_evaluate.py: contains the script to evaluate the model on the test set.
-    - requirements.txt: contains the required packages.
+### Key Features:
+- **Encoder-Decoder Architecture**: The model consists of an encoder for extracting key information from ECG signals and a GPT-2-based decoder for generating clinical reports.
+- **Multi-label Learning**: Incorporates multi-label training to capture diverse information such as disease type, rhythm, and form of the signal.
+- **BLEU-Based Evaluation**: Measures the quality of generated reports using BLEU scores, complemented by qualitative analysis.
+- **Multilingual Support**: Preliminary experiments on generating reports in multiple languages.
+
+## Repository Structure
+
+- **`encoder_training/`**: Code for training the encoder models (ResNet, FCN) on ECG classification tasks.
+- **`decoder_training/`**: Implementation of the GPT-2-based text generation component.
+- **`data_processing/`**: Scripts for preparing datasets, including the PTB-XL dataset and translated captions.
+- **`experiments/`**: Jupyter notebooks and scripts for conducting experiments, including testing various encoders and evaluating BLEU scores.
+- **`reports/`**: Example generated ECG reports for different encoder-decoder configurations.
+
+## Datasets
+
+The project leverages the **PTB-XL** dataset, a publicly available collection of 21,837 clinical 12-lead ECGs. Each record is annotated with diagnostic, form, and rhythm information, along with textual clinical reports. Translated captions were also utilized to explore multilingual capabilities.
+
+## Key Experiments
+
+1. **Encoder Models**:
+   - Tested ResNet and FCN architectures for feature extraction.
+   - Found that multi-label training enhances the encoder's ability to represent complex ECG data.
+
+2. **Text Pre-training**:
+   - Evaluated the impact of pre-training the GPT-2 decoder on medical texts, which showed limited improvement due to overfitting risks.
+
+3. **Multilingual Captioning**:
+   - Explored the use of English and German captions, with limited success due to data constraints.
+
+4. **Evaluation Metrics**:
+   - Assessed performance using BLEU-1 and BLEU-4 scores and qualitative analysis for readability.
+
+## Future Work
+
+- Incorporate larger and more diverse datasets to improve model robustness.
+- Develop end-to-end training approaches for better integration between encoder and decoder.
+- Enhance multilingual support with advanced language models and more balanced datasets.
+- Explore interpretability techniques to build trust in ML-generated reports among clinicians and patients.
+
+## References
+
+1. [Let Your Heart Speak in its Mother Tongue: Multilingual Captioning of Cardiac Signals](https://arxiv.org/abs/2103.14626)
+2. [GPT-2: Language Models are Unsupervised Multitask Learners](https://openai.com/research/language-unsupervised)
+3. [PTB-XL Dataset](https://physionet.org/content/ptb-xl/1.0.1/)
+
+---
+
+This repository showcases a proof-of-concept for generating medical reports from ECG signals and sets a foundation for future research in medical text generation. Contributions and feedback are welcome!
