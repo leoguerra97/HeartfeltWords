@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <title>ECG Captioning</title>
+    <link href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <title>ECG  Captioning</title>
+  </head>
+ <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+  <div class="container-fluid">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+          <p>ECG Captioning demo</p>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+ <!-- BODY -->
+  <body>
+    <div>
+        <div id="container"></div>
+        <div style="clear: left;">
+            <p style="float: left;"><img src="static/images/{{ page_data[0]['ecg_name'] }}.png" height="750" width="500" border="1px"></p>
+            <p>
+                Predicted caption is : {{ page_data[0]['pred'] }}<br /><br />
+                Real caption {{ page_data[0]['real'] }}      <br /><br />
+                Bleu-1 score {{ page_data[0]['bleu-1'] }}    <br /><br />
+                Bleu-4 score {{ page_data[0]['bleu-4'] }}
+            </p>
+        </div>
+         <div style="clear: left;">
+            <p style="float: left;"><img src="static/images/{{ page_data[1]['ecg_name'] }}.png" height="750" width="500" border="1px"></p>
+            <p>
+                Predicted caption is : {{ page_data[1]['pred'] }}<br /><br />
+                Real caption is: {{ page_data[1]['real'] }}      <br /><br />
+                Bleu-1 score is: {{ page_data[1]['bleu-1'] }}    <br /><br />
+                Bleu-4 score is: {{ page_data[1]['bleu-4'] }}
+            </p>
+        </div>
+         <div style="clear: left;">
+            <p style="float: left;"><img src="static/images/{{ page_data[2]['ecg_name'] }}.png" height="750" width="500" border="1px"></p>
+            <p>
+                Predicted caption is : {{ page_data[2]['pred'] }}<br /><br />
+                Real caption is: {{ page_data[2]['real'] }}      <br /><br />
+                Bleu-1 score is: {{ page_data[2]['bleu-1'] }}    <br /><br />
+                Bleu-4 score is: {{ page_data[2]['bleu-4'] }}
+            </p>
+        </div>
+         <div style="clear: left;">
+            <p style="float: left;"><img src="static/images/{{ page_data[3]['ecg_name'] }}.png" height="750" width="500" border="1px"></p>
+            <p>
+                Predicted caption is : {{ page_data[3]['pred'] }}<br /><br />
+                Real caption is: {{ page_data[3]['real'] }}      <br /><br />
+                Bleu-1 score is: {{ page_data[3]['bleu-1'] }}    <br /><br />
+                Bleu-4 score is: {{ page_data[3]['bleu-4'] }}
+            </p>
+        </div>
+         <div style="clear: left;">
+            <p style="float: left;"><img src="static/images/{{ page_data[4]['ecg_name'] }}.png" height="750" width="500" border="1px"></p>
+            <p>
+                Predicted caption is : {{ page_data[4]['pred'] }}<br /><br />
+                Real caption is: {{ page_data[4]['real'] }}      <br /><br />
+                Bleu-1 score is: {{ page_data[4]['bleu-1'] }}    <br /><br />
+                Bleu-4 score is: {{ page_data[4]['bleu-4'] }}
+            </p>
+        </div>
+         <div style="clear: left;">
+            <p style="float: left;"><img src="static/images/{{ page_data[5]['ecg_name'] }}.png" height="750" width="500" border="1px"></p>
+            <p>
+                Predicted caption is : {{ page_data[5]['pred'] }}<br /><br />
+                Real caption is: {{ page_data[5]['real'] }}      <br /><br />
+                Bleu-1 score is: {{ page_data[5]['bleu-1'] }}    <br /><br />
+                Bleu-4 score is: {{ page_data[5]['bleu-4'] }}
+            </p>
+        </div>
+         <div style="clear: left;">
+            <p style="float: left;"><img src="static/images/{{ page_data[6]['ecg_name'] }}.png" height="750" width="500" border="1px"></p>
+            <p>
+                Predicted caption is : {{ page_data[6]['pred'] }}<br /><br />
+                Real caption is: {{ page_data[6]['real'] }}      <br /><br />
+                Bleu-1 score is: {{ page_data[6]['bleu-1'] }}    <br /><br />
+                Bleu-4 score is: {{ page_data[6]['bleu-4'] }}
+            </p>
+        </div>
+         <div style="clear: left;">
+            <p style="float: left;"><img src="static/images/{{ page_data[7]['ecg_name'] }}.png" height="750" width="500" border="1px"></p>
+            <p>
+                Predicted caption is : {{ page_data[7]['pred'] }}<br /><br />
+                Real caption is: {{ page_data[7]['real'] }}      <br /><br />
+                Bleu-1 score is: {{ page_data[7]['bleu-1'] }}    <br /><br />
+                Bleu-4 score is: {{ page_data[7]['bleu-4'] }}
+            </p>
+        </div>
+         <div style="clear: left;">
+            <p style="float: left;"><img src="static/images/{{ page_data[8]['ecg_name'] }}.png" height="750" width="500" border="1px"></p>
+            <p>
+                Predicted caption is : {{ page_data[8]['pred'] }}<br /><br />
+                Real caption is: {{ page_data[8]['real'] }}      <br /><br />
+                Bleu-1 score is: {{ page_data[8]['bleu-1'] }}    <br /><br />
+                Bleu-4 score is: {{ page_data[8]['bleu-4'] }}
+            </p>
+        </div>
+         <div style="clear: left;">
+            <p style="float: left;"><img src="static/images/{{ page_data[9]['ecg_name'] }}.png" height="750" width="500" border="1px"></p>
+            <p>
+                Predicted caption is : {{ page_data[9]['pred'] }}<br /><br />
+                Real caption is: {{ page_data[9]['real'] }}      <br /><br />
+                Bleu-1 score is: {{ page_data[9]['bleu-1'] }}    <br /><br />
+                Bleu-4 score is: {{ page_data[9]['bleu-4'] }}
+            </p>
+        </div>
+         <div style="clear: left;">
+            <p style="float: left;"><img src="static/images/{{ page_data[10]['ecg_name'] }}.png" height="750" width="500" border="1px"></p>
+            <p>
+                Predicted caption is : {{ page_data[10]['pred'] }}<br /><br />
+                Real caption is: {{ page_data[10]['real'] }}      <br /><br />
+                Bleu-1 score is: {{ page_data[10]['bleu-1'] }}    <br /><br />
+                Bleu-4 score is: {{ page_data[10]['bleu-4'] }}
+            </p>
+        </div>
+         <div style="clear: left;">
+            <p style="float: left;"><img src="static/images/{{ page_data[11]['ecg_name'] }}.png" height="750" width="500" border="1px"></p>
+            <p>
+                Predicted caption is : {{ page_data[0]['pred'] }}<br /><br />
+                Real caption is: {{ page_data[11]['real'] }}      <br /><br />
+                Bleu-1 score is: {{ page_data[11]['bleu-1'] }}    <br /><br />
+                Bleu-4 score is: {{ page_data[11]['bleu-4'] }}
+            </p>
+        </div>
+    </div>
+  </body>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='bootstrap/js/bootstrap.min.js') }}"></script>
+
+  <script>
+      $(function() {
+          $('.pop').on('click', function() {
+              $('.imagepreview').attr('src', $(this).find('img').attr('src'));
+              $('#imagemodal').modal('show');
+          });
+      });
+  </script>
+
+</html>
+

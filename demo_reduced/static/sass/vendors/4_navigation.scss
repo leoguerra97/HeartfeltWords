@@ -1,0 +1,270 @@
+@use 'sass:math';
+
+/*	--------------------------------------------------
+ :: TOPBAR
+ -------------------------------------------------- */
+.navBar {
+  ul.titleBox {
+	float: left;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	flex-wrap: wrap;
+	height: 100%;
+
+	li {
+	  height: $unit*1.25;
+	  margin-right: math.div($unit, 8);
+
+	  &:last-child {
+		margin-right: 0;
+	  }
+
+	  a, p {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: $unit * 6;
+		height: 100%;
+		text-transform: uppercase;
+		text-decoration: none;
+		@include lightDark(color, lighten($_2, 50%), $_4);
+		@include lightDark(background-color, $_10, $_1);
+
+		&:hover {
+		  @include lightDark(color, $_2, $_5);
+		}
+
+		&.active {
+		  @include lightDark(color, $_2, $_5);
+		  @include lightDark(background-color, $_8, $_0);
+		  font-weight: 500;
+		}
+	  }
+	}
+  }
+
+  ul.legendBox {
+	float: right;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	flex-wrap: wrap;
+	height: 100%;
+	margin-right: $unit;
+
+	li {
+	  display: flex;
+	  align-items: center;
+	  justify-content: center;
+	  height: $unit*1.25;
+	  margin-right: math.div($unit, 4);
+
+	  i {
+		margin-right: math.div($unit, 8);
+
+		&.STTC {
+		  color: $violetClr;
+		}
+
+		&.NORM {
+		  color: $greenClr;
+		}
+
+		&.MI {
+		  color: $blueClr;
+		}
+
+		&.HYP {
+		  color: $yellowClr;
+		}
+
+		&.CD {
+		  color: $redClr;
+		}
+	  }
+
+	  span {
+	  }
+
+	  &:last-child {
+		margin-right: 0;
+	  }
+
+	}
+  }
+}
+
+/*	--------------------------------------------------
+ :: SIDEBAR
+ -------------------------------------------------- */
+.sideBar {
+  ul {
+	width: $unit*2;
+
+	li {
+	  text-align: center;
+	  list-style-type: none;
+
+	  a {
+		display: flex;
+		height: $unit*1.75;
+		width: 100%;
+		cursor: pointer;
+		justify-content: center;
+		flex-direction: column;
+		align-items: center;
+		text-decoration: none;
+		@include lightDark(color, lighten($_2, 50%), $_4);
+
+		&:hover {
+		  @include lightDark(color, $_2, $_5);
+		}
+
+		&:before {
+		  width: 100%;
+		  font-size: $fs-i;
+		}
+	  }
+	}
+
+	li.selected {
+	  @include lightDark(background-color, $_8, $_0);
+
+	  a {
+		@include lightDark(color, $_2, $_5);
+	  }
+	}
+
+  }
+}
+
+.actionBar {
+  @include lightDark(background-color, $_8, $_0);
+  border-radius: 0 math.div($unit, 4) math.div($unit, 4) 0;
+
+  ul {
+	width: $unit*1.75;
+
+	li {
+	  text-align: center;
+	  list-style-type: none;
+
+	  a {
+		display: flex;
+		height: $unit*1.75;
+		width: 100%;
+		cursor: pointer;
+		justify-content: center;
+		flex-direction: column;
+		align-items: center;
+		text-decoration: none;
+		@include lightDark(color, $_0, $_4);
+
+		&.active {
+		  @include lightDark(background-color, $_2, $_3);
+		  @include lightDark(color, $_4, $_4);
+		  border-radius: 0 math.div($unit, 4) math.div($unit, 4) 0;
+		}
+
+		&:hover {
+		  @include lightDark(color, $acc2, $acc1);
+		}
+
+		&:before {
+		  width: 100%;
+		  font-size: $fs-i;
+		}
+	  }
+	}
+  }
+}
+
+/*	--------------------------------------------------
+ :: FOOTER
+ -------------------------------------------------- */
+.footerStage {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .userData, .footerActions {
+	width: auto;
+	display: flex;
+  }
+
+  .userData {
+	justify-content: flex-start;
+
+	.userBox {
+	  ul {
+		display: inline-flex;
+
+		li {
+		  display: flex;
+		  align-items: center;
+		  justify-content: flex-start;
+		  @include lightDark(color, lighten($_2, 50%), $_4);
+		  margin-right: math.div($unit, 4);
+
+		  .iconUser {
+			font-size: $fs-i;
+			margin-right: math.div($unit, 4);
+		  }
+
+		  &:last-child {
+			margin-right: 0;
+		  }
+		}
+	  }
+	}
+  }
+
+  .footerActions {
+	justify-content: flex-end;
+
+	.colorBtn, .logoutBtn {
+	  cursor: pointer;
+	  background-color: transparent;
+	  border: none;
+	  display: flex;
+	  width: $unit*2;
+	  height: $unit*2;
+	  align-items: center;
+	  justify-content: center;
+	  font-size: $fs-i;
+	  @include lightDark(color, lighten($_2, 50%), $_4);
+
+	  &:hover {
+		@include lightDark(color, $_0, $_5);
+
+	  }
+	}
+
+  }
+}
+
+/*	--------------------------------------------------
+ :: SELECT
+ -------------------------------------------------- */
+select.filtSelAuto {
+  width: auto;
+  height: $unit + 8;
+  padding: 0 $unit 0 math.div($unit, 2);
+  line-height: $unit;
+  text-align: left;
+  outline: none;
+  appearance: none;
+  cursor: pointer;
+  font-family: '${primFont}', sans-serif;
+  font-size: $fs-s;
+  background-image: url(#{$imgPath}/arrow.svg);
+  background-position: calc(100% - $unit / 2) center;
+  background-repeat: no-repeat;
+  background-size: math.div($unit, 4);
+  border: none;
+  color: $_1;
+  background-color:$_10;
+  text-transform: uppercase;
+}

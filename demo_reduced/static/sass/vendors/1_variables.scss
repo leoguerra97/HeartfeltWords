@@ -1,0 +1,119 @@
+// img path
+$imgPath: '../img';
+
+// unit
+$unit: 32px;
+
+// Screen breakpoints
+$xxxl: $unit*42;
+$xxl: $unit*36;
+$xl: $unit*30;
+$l: $unit*25;
+$m: $unit*22;
+$s: $unit*15;
+$xs: $unit*10;
+$xxs: $unit*9;
+
+// List of screen sizes
+$screen-sizes: (('xxs', $xxs), ('xs', $xs), ('s', $s), ('m', $m), ('l', $l), ('xl', $xl));
+
+// Spacing (Margins+Padding)
+$-xxxl: $unit*2;
+$-xxl: $unit*1.5;
+$-xl: $unit;
+$-l: $unit*0.75;
+$-m: $unit*0.5;
+$-s: $unit*0.25;
+$-xs: $unit*0.2;
+$-xxs: $unit*0.1;
+
+// List of our spacing sizes
+$spacing: (('none', 0), ('xxs', $-xxs), ('xs', $-xs), ('s', $-s), ('m', $-m), ('l', $-l), ('xl', $-xl), ('xxl', $-xxl), ('auto', auto));
+
+// Fonts
+$text: 'IBM Plex Sans', sans-serif;
+$head: 'IBM Plex Sans Condensed', sans-serif;
+$icon: 'Material Design Icons';
+
+$fs-b: 24px;
+$fs-i: 20px;
+$fs-x: 18px;
+$fs-m: 14px;
+$fs-s: 12px;
+$fs-xs: 10px;
+
+// Colors
+$acc1: #ffed6f;
+$acc2: #8dd3c7;
+$acc3: #fb8072;
+$acc4: #e5cf07;
+
+$_0: #111214;
+$_1: #1b1c1e;
+$_2: #252628;
+$_3: #434446;
+$_4: #616264;
+$_5: #bbbcbe;
+$_6: #d9dadc;
+$_7: #f2f3f5;
+$_8: #f7f8fa;
+$_9: #fcfdff;
+$_10: #ffffff;
+
+$green_0: #f7fcf5;
+$green_1: #e6f5e1;
+$green_2: #cdebc7;
+$green_3: #addea7;
+$green_4: #88cd87;
+$green_5: #5db96b;
+$green_6: #38a055;
+$green_7: #1b843f;
+$green_8: #04672b;
+$green_9: #00441b;
+
+$orange_0: #fff5eb;
+$orange_1: #fee7cf;
+$orange_2: #fdd4ab;
+$orange_3: #fdb97e;
+$orange_4: #fd9c51;
+$orange_5: #f77d2a;
+$orange_6: #e85e0e;
+$orange_7: #cc4503;
+$orange_8: #a33503;
+$orange_9: #7f2704;
+
+$red_0: #fff5f0;
+$red_1: #fee0d3;
+$red_2: #fdc3ac;
+$red_3: #fca082;
+$red_4: #fb7c5c;
+$red_5: #f5553d;
+$red_6: #e23028;
+$red_7: #c2181c;
+$red_8: #9b0d14;
+$red_9: #67000d;
+
+$pair_0: #8dd3c7;
+$pair_1: #eeee27;
+$pair_2: #bebada;
+$pair_3: #fb8072;
+$pair_4: #80b1d3;
+$pair_5: #fdb462;
+$pair_6: #b3de69;
+$pair_7: #fccde5;
+$pair_8: #d9d9d9;
+$pair_9: #bc80bd;
+$pair_10: #ccebc5;
+$pair_11: #ffed6f;
+
+$redBkg: #ff4444;
+$redClr: #cc0000;
+$yellowBkg: #ffBB33;
+$yellowClr: #ff8800;
+$greenBkg: #99cc00;
+$greenClr: #669900;
+$violetBkg: #aa66cc;
+$violetClr: #9933cc;
+$blueClr: #007099;
+$blueBkg: #0099cc;
+$yellowselected: #ffc;

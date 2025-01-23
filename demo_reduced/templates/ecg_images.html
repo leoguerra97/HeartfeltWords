@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<title>ECG Captioning</title>
+	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@300;400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	<link href="{{ url_for('static', filename='css/index.css') }}" rel="stylesheet">
+</head>
+<!-- BODY -->
+<body>
+<section class="appStage">
+	<article class="gridContainer">
+		<header class="headerStage">
+			<nav class="navBar">
+				<ul class="titleBox">
+					<li>
+						<p class="active">ECG Captioning&nbsp;<span class="totals"></span></p>
+					</li>
+				</ul>
+				<select class="filtSelAuto" id="selModel">
+					<option value="gpt2" selected>gpt2 model</option>
+					<option value="T5">t5 model</option>
+				</select>
+				<ul class="legendBox ml-l"></ul>
+			</nav>
+		</header>
+		<!-- NAVIGATION -->
+		<aside class="leftStage">
+			<div class="logoBox">
+				<i class="logo mdi mdi-stethoscope"></i>
+			</div>
+			<nav class="sideBar">
+				<ul>
+					<li class="selected">
+						<a href="/" class="icon mdi mdi-view-grid" title="ECG Captioning"></a>
+					</li>
+					<li>
+						<a href="/upload" class="icon mdi mdi-upload" title="ECG Upload"></a>
+					</li>
+				</ul>
+			</nav>
+		</aside>
+		<!-- ECG images -->
+		<main class="mainStage">
+			<section class="gridImg fullGrid" id="ecg-images"></section>
+			<section class="viewBox dispNone"></section>
+		</main>
+	</article>
+</section>
+<!-- Js lib-->
+<script src="{{ url_for('static', filename='vendors/vendors.min.js') }}"></script>
+<!-- Js page-->
+<script src="{{ url_for('static', filename='js/ecg.js') }}"></script>
+</body>
+</html>

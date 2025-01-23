@@ -1,0 +1,518 @@
+@use 'sass:math';
+
+* {
+  box-sizing: border-box;
+}
+
+
+/*	--------------------------------------------------
+ :: SCROLLBAR
+ -------------------------------------------------- */
+/* Track */
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar {
+  width: math.div($unit, 4);
+  height: math.div($unit, 4);
+  border-radius: math.div($unit, 4);
+
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: math.div($unit, 4);
+  @include lightDark(background-color, rgba(97, 98, 100, 0.4), rgba(17, 18, 20, 0.8));
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+}
+
+/*	--------------------------------------------------
+ :: BODY
+ -------------------------------------------------- */
+
+html {
+  height: 100%;
+  font-size: 100%;
+}
+
+body {
+  font-family: $text;
+  height: 100%;
+  color: $_0;
+  @include lightDark(background-color, $_10, $_2);
+}
+
+/*	--------------------------------------------------
+ :: MAIN GRID
+ -------------------------------------------------- */
+.appStage {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+.gridContainer {
+  font-size: $fs-s;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: $unit*2 1fr;
+  grid-template-rows: $unit*1.25 1fr;
+
+  .headerStage, .leftStage, .footerStage {
+	@include lightDark(background-color, $_9, $_2);
+  }
+
+  .headerStage {
+	grid-area: 1 / 2 / 2;
+  }
+
+  .leftStage {
+	grid-area: 1 / 1 / 4;
+  }
+
+  .mainStage {
+	display: grid;
+	grid-template-columns: auto max-content;
+	overflow: hidden;
+	grid-area: 2 / 2 / 3;
+	padding: $unit $unit 0 $unit;
+	@include lightDark(background-color, $_8, $_0);
+
+	&.colGap {
+	  column-gap: $unit;
+	}
+
+	.gridImg {
+	  width: 100%;
+	  height: 100%;
+	  overflow: auto;
+	  display: grid;
+	  column-gap: $unit;
+	  row-gap: $unit;
+
+	  &.fullGrid {
+		grid-template-columns: repeat(6, 1fr);
+	  }
+
+	  &.minGrid {
+		grid-template-columns: repeat(3, 1fr);
+
+	  }
+
+	  figure {
+		width: 100%;
+		height: $unit*2;
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		@include lightDark(background-color, $_10, $_1);
+
+		&.selected {
+		  //@include lightDark(background-color, $yellowselected, $yellowselected);
+
+		  figcaption {
+			@include lightDark(background-color, $_1, $_1);
+			@include lightDark(color, $_10, $_0);
+		  }
+
+		  i {
+			//@include lightDark(color, $_10, $_0);
+		  }
+		}
+
+		figcaption {
+		  width: 100%;
+		  height: math.div($unit, 1);
+		  display: flex;
+		  align-items: center;
+		  justify-content: center;
+		  @include lightDark(background-color, $_6, $_3);
+		  @include lightDark(color, $_0, $_10);
+		  font-weight: 400;
+		}
+
+		i {
+		  display: flex;
+		  align-items: center;
+		  justify-content: center;
+		  height: $unit;
+		  width: 100%;
+		  font-size: $fs-b;
+		  cursor: pointer;
+		  //@include lightDark(color, $_0, $_4);
+		}
+
+		&.STTC {
+		  i {
+			color: $violetClr;
+		  }
+		}
+
+		&.NORM {
+		  i {
+			color: $greenClr;
+		  }
+		}
+
+		&.MI {
+		  i {
+			color: $blueClr;
+		  }
+		}
+
+		&.HYP {
+		  i {
+			color: $yellowClr;
+		  }
+		}
+
+		&.CD {
+		  i {
+			color: $redClr;
+		  }
+		}
+	  }
+	}
+
+	.viewBox {
+	  position: relative;
+	  width: $unit*15;
+	  height: 100%;
+	  display: flex;
+	  align-items: center;
+	  flex-direction: column;
+	  @include lightDark(background-color, $_10, $_10);
+	  padding: $unit;
+
+	  .ecgBox {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+
+		img {
+		  width: 75%;
+		  height: auto
+		}
+
+		.closeBtn {
+		  display: flex;
+		  width: 100%;
+		  height: $unit;
+		  align-items: center;
+		  justify-content: flex-end;
+		  font-size: $fs-b;
+		  cursor: pointer;
+		  @include lightDark(color, $_5, $_5);
+		  /*@include lightDark(background-color, $acc3, $acc1);
+		  @include lightDark(color, $_10, $_0);*/
+		}
+	  }
+	}
+  }
+}
+
+.mainUpload {
+  position: relative;
+  padding: $unit $unit 0 $unit;
+  height: 100%;
+  @include lightDark(background-color, $_8, $_0);
+
+  .formBox {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	height: $unit * 7.5;
+	@include lightDark(background-color, $_10, $_10);
+	padding: $unit $unit*2 0 $unit*2;
+
+	h1 {
+	  width: 100%;
+	  font-weight: 500;
+	  height: $unit;
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  text-transform: uppercase;
+	}
+
+	form {
+	  width: 100%;
+	  display: flex;
+	  justify-content: center;
+
+	  .chooseFile, .bntUpload {
+		border: none;
+		appearance: none;
+	  }
+
+	  .chooseFile {
+		display: none;
+	  }
+
+	  .file-upload, .bntUpload {
+		width: $unit*5;
+		height: $unit;
+		font-size: $fs-b;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+	  }
+
+	  .file-upload {
+		@include lightDark(background-color, $acc2, $acc2);
+		@include lightDark(color, $_10, $_10);
+		outline: none;
+		white-space: nowrap;
+		-webkit-user-select: none;
+
+		&:hover {
+		  @include lightDark(background-color, darken($acc2, 10%), darken($acc2, 10%));
+		}
+	  }
+
+	  .bntUpload {
+		margin-left: $unit;
+		@include lightDark(background-color, $acc3, $acc3);
+		@include lightDark(color, $_10, $_0);
+
+		&:hover {
+		  @include lightDark(background-color, darken($acc3, 10%), darken($acc3, 10%));
+		}
+
+	  }
+	}
+
+  }
+
+  .upPrediction {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	height: calc(100% - $unit * 7.5);
+	@include lightDark(background-color, $_10, $_10);
+	//padding: $unit;
+
+	.ecgBox {
+	  position: relative;
+	  width: 100%;
+	  height: 100%;
+	  display: flex;
+	  align-items: center;
+	  flex-direction: column;
+
+	  img {
+		position: absolute;
+		height: 100%;
+	  }
+
+	  p {
+		position: absolute;
+		top: 0;
+		font-weight: 600;
+		max-height: $unit*2
+	  }
+
+	  .closeBtn {
+		display: flex;
+		width: 100%;
+		height: $unit;
+		align-items: center;
+		justify-content: flex-end;
+		font-size: $fs-b;
+		cursor: pointer;
+		@include lightDark(color, $_5, $_5);
+		/*@include lightDark(background-color, $acc3, $acc1);
+		@include lightDark(color, $_10, $_0);*/
+	  }
+	}
+  }
+
+
+}
+
+/*	--------------------------------------------------
+ :: LEFT BAR
+ -------------------------------------------------- */
+.leftStage {
+  .logoBox {
+	width: 100%;
+	height: $unit*2;
+
+	.logo {
+	  display: flex;
+	  align-items: center;
+	  justify-content: center;
+	  font-size: 28px;
+	  line-height: $unit*2;
+	  color: $acc2;
+	}
+  }
+}
+
+/*	--------------------------------------------------
+ :: SPINNER
+ -------------------------------------------------- */
+.spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+/*	--------------------------------------------------
+ :: GENERIC TABLES
+ -------------------------------------------------- */
+table {
+  width: 100%;
+  table-layout: fixed;
+
+  thead, tbody, tfoot {
+	tr {
+
+	  th, td {
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		vertical-align: middle;
+	  }
+	}
+  }
+
+  thead {
+	tr {
+	  height: $unit;
+
+	  th {
+		font-family: $head;
+		padding-bottom: math.div($unit, 8);
+		vertical-align: bottom;
+		color: $acc3;
+		font-weight: 400;
+
+		a {
+		  text-decoration: none;
+		  @include lightDark(color, darken($acc2, 20%), $acc1);
+		}
+
+		&:active {
+		  outline: none
+		}
+	  }
+	}
+  }
+
+  tbody {
+	tr {
+	  height: $unit;
+	  border-bottom: 1px solid;
+
+	  td {
+		@include lightDark(color, $_0, $_5);
+
+		&:active {
+		  outline: none
+		}
+
+		a {
+		  text-decoration: none;
+		  @include lightDark(color, $acc2, $acc1);
+
+		  &:hover {
+			@include lightDark(color, lighten($acc2, 10%), lighten($acc1, 10%));
+		  }
+		}
+	  }
+
+	  &:last-child {
+	  }
+	}
+  }
+
+  tfoot {
+	tr {
+	  td {
+
+	  }
+	}
+  }
+}
+
+.dataTable {
+  position: relative;
+
+  thead {
+	@include lightDark(--color, lighten($_5, 10%), darken($_2, 10%));
+	box-shadow: inset 0px -1px 0px var(--color);
+	@include lightDark(background-color, $_10, $_2);
+	position: sticky;
+	top: 0;
+
+	tr {
+	  th {
+		text-align: left;
+	  }
+	}
+  }
+
+  tbody {
+	tr {
+	  @include lightDark(border-bottom-color, $_7, $_1);
+
+	  &:last-child {
+		@include lightDark(border-bottom-color, lighten($_5, 10%), darken($_2, 10%));
+	  }
+
+	  td {
+		@include lightDark(color, $_0, $_5);
+		text-align: left;
+	  }
+	}
+  }
+}
+
+#dataFile {
+  th, td {
+	&:nth-child(1) {
+	  width: 20%;
+	  text-align: left;
+	}
+
+	&:nth-child(2) {
+	  width: 10%;
+	  text-align: left;
+	}
+
+	&:nth-child(3) {
+	  width: 30%;
+	  text-align: left;
+	}
+
+	&:nth-child(4) {
+	  width: 10%;
+	  text-align: left;
+	}
+
+	&:nth-child(5) {
+	  text-align: left;
+	}
+
+	&:nth-child(6) {
+	  width: 20%;
+	  text-align: right;
+	}
+  }
+
+  td {
+	&:nth-child(1) {
+	  font-weight: 500;
+	}
+  }
+}
+

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<title>ECG Upload</title>
+	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@300;400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	<link href="{{ url_for('static', filename='css/index.css') }}" rel="stylesheet">
+</head>
+<!-- BODY -->
+<body>
+<section class="appStage">
+	<article class="gridContainer">
+		<header class="headerStage">
+			<nav class="navBar">
+				<ul class="titleBox">
+					<li>
+						<p class="active">ECG Captionin&nbsp;<span class="totals"></span></p>
+					</li>
+				</ul>
+			</nav>
+
+		</header>
+		<!-- NAVIGATION -->
+		<aside class="leftStage">
+			<div class="logoBox">
+				<i class="logo mdi mdi-stethoscope"></i>
+			</div>
+			<nav class="sideBar">
+				<ul>
+					<li>
+						<a href="/" class="icon mdi mdi-view-grid" title="ECG Captioning"></a>
+					</li>
+					<li class="selected">
+						<a href="/upload" class="icon mdi mdi-upload" title="ECG Upload"></a>
+					</li>
+				</ul>
+			</nav>
+		</aside>
+		<!-- ECG upload -->
+		<main class="mainUpload">
+			<section class="formBox">
+				<h1>Data information</h1>
+				<table class="dataTable mb-l" id="dataFile">
+					<thead>
+					<tr></tr>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
+				<form method="post" action="" enctype="multipart/form-data" id="ecgUp">
+					<label class="file-upload  mdi mdi-file">
+						<input class="chooseFile" type="file" id="fileUp" name="file[]" multiple/>
+					</label>
+					<button type="submit" class="bntUpload mdi mdi-upload" id="but_upload"></button>
+				</form>
+			</section>
+			<section class="upPrediction"></section>
+		</main>
+	</article>
+</section>
+<!-- Js lib-->
+<script src="{{ url_for('static', filename='vendors/vendors.min.js') }}"></script>
+<!-- Js page-->
+<script src="{{ url_for('static', filename='js/upload.js') }}"></script>
+</body>
+</html>
